@@ -19,6 +19,9 @@ class TestMainFunction(unittest.TestCase):
         else:
              print("Either the file is missing or not readable")
         
+    def tearDown(self):
+        os.remove('../db/app/dim_tableTest.gzip')
+        os.remove('../db/app/agg_tableTest.gzip')
 
 if __name__ == '__main__':
     unittest.main()
