@@ -1,6 +1,8 @@
 import csv,json
 import pandas as pd
 
+path='../db/app/'
+
 def raw_to_app(table_name,url_json):
     with open(url_json) as f:
         data = json.loads(f.read())
@@ -24,7 +26,7 @@ def raw_to_app(table_name,url_json):
 
     df_dim=pd.concat([df_ids,df_price,df_creation],axis=1)
     df_dim=df_dim.rename(columns={'order_id': 'order_number'})
-    df_dim.to_parquet('../db/app/dim_'+table_name+'.gzip',
+    df_dim.to_parquet(path+'dim_'+table_name+'.gzip',
                 compression='gzip') 
  
     ###Metrics table
@@ -35,6 +37,6 @@ def raw_to_app(table_name,url_json):
     df_metrics=df_orders.groupby('created_at', as_index=False).agg({'order_id':'count','amount': 'sum'})
     df_metrics=df_metrics.rename(columns={'created_at': 'creation_dt', 'order_id': 'total_orders_qty','amount':'total_sales_amount'})
 
-    df_metrics.to_parquet('../db/app/agg_'+table_name+'.gzip',
+    df_metrics.to_parquet(path+'agg_'+table_name+'.gzip',
                 compression='gzip') 
 
