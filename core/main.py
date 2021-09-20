@@ -11,7 +11,6 @@ if __name__ == "__main__":
      if len(sys.argv) == 3:
         main(sys.argv[1],sys.argv[2])
      else:
-      # do Y
          main(sys.argv[1],sys.argv[2],sys.argv[3])
 
      

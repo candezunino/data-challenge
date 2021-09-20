@@ -23,7 +23,7 @@ def raw_to_app(table_name,url_json):
 
 
     df_dim=pd.concat([df_ids,df_price,df_creation],axis=1)
-
+    df_dim=df_dim.rename(columns={'order_id': 'order_number'})
     df_dim.to_parquet('../db/app/dim_'+table_name+'.gzip',
                 compression='gzip') 
  
