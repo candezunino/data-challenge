@@ -1,7 +1,7 @@
 from collections import OrderedDict #to order the dictionary like the given example
 import csv,json
 
-def landing_to_raw(url_csv,url_json='../../db/raw/unknown.json'):
+def landing_to_raw(url_csv,url_json):
 
     KEYS_TO_REPARSE = ["billing_address", "client_details", "customer", 
                         "fulfillments", "line_items", "payment_details", 
