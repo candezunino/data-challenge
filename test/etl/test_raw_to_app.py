@@ -7,7 +7,7 @@ import os
 import unittest
 
 
-class TestCSVtoJSON(unittest.TestCase):
+class TestRawtoApp(unittest.TestCase):
     def test_main_execution(self):
         
         """This will test if the tables are parquet type and the number of columns and types are correct"""

@@ -1,6 +1,6 @@
 import sys
-from etl.landing_to_raw import landing_to_raw
-from etl.raw_to_app import raw_to_app
+from core.etl.landing_to_raw import landing_to_raw
+from core.etl.raw_to_app import raw_to_app
 
 def main(csv,table,json='../db/raw/unknown.json'):
 
